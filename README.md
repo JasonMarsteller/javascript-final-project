@@ -116,3 +116,71 @@ function startGame() {
                 myGameArea.start();
             }
 ```
+
+# Major Code Revision - Putting Boundaries on Game Area
+
+I was asked to add boundary code to the game area to stop the rocketship from moving outside the boundaries of the canvas.  At first, I was able to use the [hit the bottom](https://www.w3schools.com/graphics/game_gravity.asp) code shown in the W3Schools game tutorial.  However, this not only stopped the game piece from going past the bottom, it also stopped the obstacles. At this point, I had to separate out the component code to create the game piece separately.  From there, I was able to pass the various hitDirection if statements to stop the rocketship from moving through the rest of the screen boundaries.
+
+```
+function pieceComponent(width, height, color, x, y, type) {
+
+                this.type = type;
+                if (type == "text") {
+                    this.text = color;
+                }
+                if (type == "image") {
+                    this.image = new Image();
+                    this.image.src = color;
+                }
+                this.score = 0;
+                this.width = width;
+                this.height = height;
+                this.speedX = 0;
+                this.speedY = 0;
+                this.x = x;
+                this.y = y;
+                this.update = function() {
+                    ctx = myGameArea.context;
+                    if (this.type == "text") {
+                        ctx.font = this.width + " " + this.height;
+                        ctx.fillStyle = color;
+                        ctx.fillText(this.text, this.x, this.y);
+                    } else if (type == "image") {
+                        ctx.drawImage(this.image,
+                            this.x,
+                            this.y,
+                            this.width, this.height);
+                    } else {
+                        ctx.fillStyle = color;
+                        ctx.fillRect(this.x, this.y, this.width, this.height);
+                    }
+                    this.hitBottom();
+                    this.hitRight();
+                    this.hitLeft();
+                    this.hitTop();
+                }
+                this.hitBottom = function() {
+                    var rockbottom = myGameArea.canvas.height - this.height;
+                        if (this.y > rockbottom) {
+                            this.y = rockbottom;
+                        }
+                }
+                 this.hitRight = function() {
+                    var rockright = myGameArea.canvas.width - this.width;
+                    if (this.x > rockright) {
+                        this.x = rockright;
+                    } 
+                }
+                this.hitLeft = function() {
+                    var rockleft = 0;
+                    if (this.x < rockleft) {
+                        this.x = rockleft;
+                    } 
+                }
+                this.hitTop = function() {
+                    var rockTop = 0;
+                    if (this.y < rockTop) {
+                        this.y = rockTop;
+                    } 
+                }
+```
