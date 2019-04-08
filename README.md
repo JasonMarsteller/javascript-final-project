@@ -108,7 +108,8 @@ canvas {
             
 Second, changing the red square to a rocketship occurred within the startGame function:
 
-```function startGame() {
+```
+function startGame() {
                 myGameArea = new gamearea();
                 **myGamePiece = new component(30, 30, "rocket.png", 275, 300, "image");**
                 myscore = new component("15px", "Consolas", "white", 20, 25, "text");
