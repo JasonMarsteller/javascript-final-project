@@ -53,7 +53,7 @@ document.addEventListener("keyup", stopSomething, false);
             
 # Major Code Revision - Convert to Vertical Movement 
 
-Convering the movement from horizontal to vertical was the most difficult part of this process.  The movement was somewhat simple in changing myObstacles to a y focus, but adjusting the myObstacles to show up in the right place in a vertical orientation was the most difficult.  The bolded items were the locations of changes. 
+Convering the movement from horizontal to vertical was the most difficult part of this process.  The movement was somewhat simple in changing myObstacles to a y focus, but adjusting the myObstacles to show up in the right place in a vertical orientation was the most difficult.
 
 ```
 function updateGameArea() {
@@ -71,7 +71,7 @@ function updateGameArea() {
                     myGameArea.frameNo += 1;
                     myscore.score += 1;
                     if (myGameArea.frameNo == 1 || everyinterval(200)) {
-                        **x = myGameArea.canvas.width;
+                     ----->   x = myGameArea.canvas.width;
                         y = myGameArea.canvas.height - 400;
                         min = 20;
                         max = 580;
@@ -80,10 +80,10 @@ function updateGameArea() {
                         max = 100;
                         gap = Math.floor(Math.random() * (max - min + 1) + min);
                         myObstacles.push(new component(width, 10, "yellow", 0, y));
-                        myObstacles.push(new component(x - width - gap, 10, "yellow", width + gap, y));**
+                        myObstacles.push(new component(x - width - gap, 10, "yellow", width + gap, y));<------
                     }
                     for (i = 0; i < myObstacles.length; i += 1) {
-                        **myObstacles[i].y += 1;**
+                    ---->    myObstacles[i].y += 1;<-----
                         myObstacles[i].update();
                     }
                     myscore.text = "SCORE: " + myscore.score;
@@ -102,7 +102,7 @@ First, the background update was a simple CSS change:
 ```
 canvas {
                 border:1px solid #d3d3d3;
-                **background-image: url("space.gif");**
+                ----->background-image: url("space.gif");<-----
             }
 ```
             
@@ -111,7 +111,7 @@ Second, changing the red square to a rocketship occurred within the startGame fu
 ```
 function startGame() {
                 myGameArea = new gamearea();
-                **myGamePiece = new component(30, 30, "rocket.png", 275, 300, "image");**
+                ----->myGamePiece = new component(30, 30, "rocket.png", 275, 300, "image");<------
                 myscore = new component("15px", "Consolas", "white", 20, 25, "text");
                 myGameArea.start();
             }
