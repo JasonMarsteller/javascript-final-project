@@ -49,7 +49,7 @@ document.addEventListener("keyup", stopSomething, false);
                     return false;
                 }
             }
-            ```
+```
             
 # Major Code Revision - Convert to Vertical Movement 
 
@@ -91,7 +91,7 @@ function updateGameArea() {
                     myGamePiece.x += myGamePiece.speedX;
                     myGamePiece.y += myGamePiece.speedY;
                     myGamePiece.update();
-                    ```
+```
 
 # Major Code Revision - Add Graphics
 
@@ -104,7 +104,7 @@ canvas {
                 border:1px solid #d3d3d3;
                 **background-image: url("space.gif");**
             }
-            ```
+```
             
 Second, changing the red square to a rocketship occurred within the startGame function:
 
@@ -113,4 +113,5 @@ Second, changing the red square to a rocketship occurred within the startGame fu
                 **myGamePiece = new component(30, 30, "rocket.png", 275, 300, "image");**
                 myscore = new component("15px", "Consolas", "white", 20, 25, "text");
                 myGameArea.start();
-            }```
+            }
+```
