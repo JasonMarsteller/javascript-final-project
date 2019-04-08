@@ -17,7 +17,8 @@ To bind the direction keys to the Up/Down/Left/Right buttons, I used the followi
 
 This required the standard switch/case function code found in a variety of places online as well as the creation of two functions that listened for when the keys were down and when they were up to stop the movement. 
 
-```document.addEventListener("keydown", moveSomething, false);
+```
+document.addEventListener("keydown", moveSomething, false);
 document.addEventListener("keyup", stopSomething, false);
 
             function moveSomething(e) {
@@ -47,13 +48,15 @@ document.addEventListener("keyup", stopSomething, false);
                     myGamePiece.speedY = 0;
                     return false;
                 }
-            }```
+            }
+            ```
             
 # Major Code Revision - Convert to Vertical Movement 
 
 Convering the movement from horizontal to vertical was the most difficult part of this process.  The movement was somewhat simple in changing myObstacles to a y focus, but adjusting the myObstacles to show up in the right place in a vertical orientation was the most difficult.  The bolded items were the locations of changes. 
 
-```function updateGameArea() {
+```
+function updateGameArea() {
                 var x, y, min, max, height, gap;
                 for (i = 0; i < myObstacles.length; i += 1) {
                     if (myGamePiece.crashWith(myObstacles[i])) {
@@ -87,7 +90,8 @@ Convering the movement from horizontal to vertical was the most difficult part o
                     myscore.update();
                     myGamePiece.x += myGamePiece.speedX;
                     myGamePiece.y += myGamePiece.speedY;
-                    myGamePiece.update();```
+                    myGamePiece.update();
+                    ```
 
 # Major Code Revision - Add Graphics
 
@@ -95,10 +99,12 @@ Updating the graphics of the game were some of the quickest fixes.
 
 First, the background update was a simple CSS change:
 
-```canvas {
+```
+canvas {
                 border:1px solid #d3d3d3;
                 **background-image: url("space.gif");**
-            }```
+            }
+            ```
             
 Second, changing the red square to a rocketship occurred within the startGame function:
 
