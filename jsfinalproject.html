@@ -22,7 +22,7 @@
             }
         </style>
     </head>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <body>
 
         <p class="freepik">Press the buttons to move the rocketship:</p>
@@ -33,14 +33,14 @@
         <div id="canvascontainer"></div>
         <br>
         <div style="text-align:center;width:600px;">
-            <button ontouchstart="moveup()" onmousedown="moveup()" onmouseup="clearmove()">UP</button>
+            <button class="btn" ontouchstart="moveup()" onmousedown="moveup()" onmouseup="clearmove()"><i class="fa fa-arrow-up"></i></button>
             <br>
             <br>
-            <button ontouchstart="moveleft()" onmousedown="moveleft()" onmouseup="clearmove()">LEFT</button>
-            <button ontouchstart="moveright()" onmousedown="moveright()" onmouseup="clearmove()">RIGHT</button>
+            <button class="btn" ontouchstart="moveleft()" onmousedown="moveleft()" onmouseup="clearmove()"><i class="fa fa-arrow-left"></i></button>
+            <button class="btn" ontouchstart="moveright()" onmousedown="moveright()" onmouseup="clearmove()"><i class="fa fa-arrow-right"></i></button>
             <br>
             <br>
-            <button ontouchstart="movedown()" onmousedown="movedown()" onmouseup="clearmove()">DOWN</button>
+            <button class="btn" ontouchstart="movedown()" onmousedown="movedown()" onmouseup="clearmove()"><i class="fa fa-arrow-down"></i></button>
         </div>
         <br>
 
@@ -300,22 +300,18 @@ x.addListener(myFunction) // Attach listener function on state changes
 
             function moveup() {
                 myGamePiece.speedY = -4;
-                preventDefault();
             }
 
             function movedown() {
                 myGamePiece.speedY = 4;
-                preventDefault();
             }
 
             function moveleft() {
                 myGamePiece.speedX = -4;
-                preventDefault();
             }
-
+            
             function moveright() {
                 myGamePiece.speedX = 4;
-                preventDefault();
             }
 
             function clearmove(e) {
