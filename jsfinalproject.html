@@ -89,6 +89,7 @@
                 window.addEventListener('touchmove', function (e) {
                     myGameArea.x = e.touches[0].screenX;
                     myGameArea.y = e.touches[0].screenY;
+                    e.preventDefault();
                 })
                 this.stop = function() {
                     clearInterval(this.interval);
