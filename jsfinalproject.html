@@ -50,6 +50,30 @@
             var myObstacles = [];
             var myscore;
 
+ function myFunctiond(x) {
+  if (x.matches) { 
+    myGameArea.canvas.width = 350;
+  } else if (x.matches) {
+    myGameArea.canvas.width = 600;
+  }
+}
+
+var x = window.matchMedia("(max-width: 700px)")
+myFunctiond(x) // Call listener function at run time
+x.addListener(myFunctiond) // Attach listener function on state changes
+
+function myFunction(x) {
+  if (x.matches) { // If media query matches
+    document.body.style.backgroundColor = "yellow";
+  } else {
+    document.body.style.backgroundColor = "pink";
+  }
+}
+
+var x = window.matchMedia("(max-width: 700px)")
+myFunction(x) // Call listener function at run time
+x.addListener(myFunction) // Attach listener function on state changes
+
             function restartGame() {
                 document.getElementById("myfilter").style.display = "none";
                 document.getElementById("myrestartbutton").style.display = "none";
@@ -74,7 +98,6 @@
                 this.canvas = document.createElement("canvas");
                 this.canvas.width = 600;
                 this.canvas.height = 350;
-                this.canvas.style.cursor = "none";
                 document.getElementById("canvascontainer").appendChild(this.canvas);
                 this.context = this.canvas.getContext("2d");
                 this.pause = false;
@@ -82,15 +105,6 @@
                 this.start = function() {
                         this.interval = setInterval(updateGameArea, 20);
                 }
-                window.addEventListener('mousemove', function (e) {
-                    myGameArea.x = e.pageX;
-                    myGameArea.y = e.pageY;
-                })
-                window.addEventListener('touchmove', function (e) {
-                    myGameArea.x = e.touches[0].screenX;
-                    myGameArea.y = e.touches[0].screenY;
-                    e.preventDefault();
-                })
                 this.stop = function() {
                     clearInterval(this.interval);
                     this.pause = true;
@@ -229,10 +243,6 @@
 
             function updateGameArea() {
                 var x, y, min, max, height, gap;
-                if (myGameArea.x && myGameArea.y) {
-                        myGamePiece.x = myGameArea.x;
-                        myGamePiece.y = myGameArea.y; 
-                    }
                 for (i = 0; i < myObstacles.length; i += 1) {
                     if (myGamePiece.crashWith(myObstacles[i])) {
                         myGameArea.stop();
