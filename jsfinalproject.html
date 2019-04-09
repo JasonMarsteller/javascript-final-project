@@ -24,9 +24,7 @@
     </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <body>
-
-        <p class="freepik">Press the buttons to move the rocketship:</p>
-        <div id="myfilter" style="position:absolute;background-color:#000000;opacity:0.3;width:600px;height:350px;display:none"></div>
+        <div id="myfilter" style="position:absolute;background-color:#000000;opacity:0.3;width:600px;height:300px;display:none"></div>
         <div id="myrestartbutton" style="position:absolute;padding-top:150px;padding-left:275px;display:none;">
             <button onclick="restartGame()">Restart</button>
         </div>
@@ -44,18 +42,13 @@
             <br>
             <button class="btn" ontouchstart="movedown()" onmousedown="movedown()" onmouseup="clearmove()"><i class="fa fa-arrow-down"></i></button>
         </div>
-        <br>
-
+        <p class="freepik">Press the buttons to move the rocketship</p>
         <script>
             var myGameArea;
             var myGamePiece;
             var myObstacles = [];
             var myscore;
 
-        window.addEventListener('resize', function () { 
-            "use strict";
-            window.location.reload(); 
-});
             function restartGame() {
                 document.getElementById("myfilter").style.display = "none";
                 document.getElementById("myrestartbutton").style.display = "none";
@@ -334,11 +327,11 @@
             startGame();
         </script>
         <div id="output"></div>
-        <div class="freepik">Icons made by <a href="https://www.freepik.com/" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
+        <div class="freepik">-Icon made by <a href="https://www.freepik.com/" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
             target="_blank">CC 3.0 BY</a>
-        <div class="freepik">Background made by <a href="https://giphy.com/gifs/space-galaxy-ygAaR0n5RsyAM" title="Giphy" target="_blank">Giphy</a>
+        <div class="freepik">-Background made by <a href="https://giphy.com/gifs/space-galaxy-ygAaR0n5RsyAM" title="Giphy" target="_blank">Giphy</a>
         </div>
-        <div class="freepik">Inspired by <a href="https://www.w3schools.com/graphics/game_intro.asp" title="W3Schools" target="_blank">W3Schools HTML Game Example</a>
+        <div class="freepik">-Inspired by <a href="https://www.w3schools.com/graphics/game_intro.asp" title="W3Schools" target="_blank">W3Schools HTML Game Example</a>
         </div>
     </body>
 
