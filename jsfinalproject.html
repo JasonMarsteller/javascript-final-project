@@ -300,18 +300,22 @@ x.addListener(myFunction) // Attach listener function on state changes
 
             function moveup() {
                 myGamePiece.speedY = -4;
+                preventDefault();
             }
 
             function movedown() {
                 myGamePiece.speedY = 4;
+                preventDefault();
             }
 
             function moveleft() {
                 myGamePiece.speedX = -4;
+                preventDefault();
             }
 
             function moveright() {
                 myGamePiece.speedX = 4;
+                preventDefault();
             }
 
             function clearmove(e) {
