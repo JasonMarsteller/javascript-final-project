@@ -184,3 +184,26 @@ function pieceComponent(width, height, color, x, y, type) {
                     } 
                 }
 ```
+# Major Code Revision - Speed Up Obstacles on Higher Scores
+
+I was also asked to add progressive difficulty as someone has a higher score.  I was able to find the code thanks to [PianistProgrammer](https://github.com/pianistprogrammer/javascript-game) having also converted the W3Schools Game for their own project.
+
+```
+myscore.text = "SCORE: " + myscore.score;
+
+                    if (myscore.score == 1000) {
+                        myGameArea.interval = setInterval(updateGameArea, 18);
+                    }
+                    else if (myscore.score == 1500) {
+                        myGameArea.interval = setInterval(updateGameArea, 16);
+                    }
+                    else if (myscore.score == 2000) {
+                        myGameArea.interval = setInterval(updateGameArea, 12);
+                    }
+                    else {
+                    myscore.update();
+                    myGamePiece.x += myGamePiece.speedX;
+                    myGamePiece.y += myGamePiece.speedY;
+                    myGamePiece.update();
+                    }
+```
