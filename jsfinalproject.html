@@ -229,6 +229,10 @@
 
             function updateGameArea() {
                 var x, y, min, max, height, gap;
+                if (myGameArea.x && myGameArea.y) {
+                        myGamePiece.x = myGameArea.x;
+                        myGamePiece.y = myGameArea.y; 
+                    }
                 for (i = 0; i < myObstacles.length; i += 1) {
                     if (myGamePiece.crashWith(myObstacles[i])) {
                         myGameArea.stop();
@@ -274,10 +278,6 @@
                     myGamePiece.y += myGamePiece.speedY;
                     myGamePiece.update();
                     }
-                }
-                if (myGameArea.x && myGameArea.y) {
-                    myGamePiece.x = myGameArea.x;
-                    myGamePiece.y = myGameArea.y; 
                 }
             }
 
