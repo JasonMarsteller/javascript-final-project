@@ -24,8 +24,8 @@
     </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <body>
-        <div id="myfilter" style="position:absolute;background-color:#000000;opacity:0.3;width:600px;height:250px;display:none"></div>
-        <div id="myrestartbutton" style="position:absolute;padding-top:125px;padding-left:275px;display:none;">
+        <div id="myfilter" style="position:absolute;background-color:#000000;opacity:0.3;width:600px;height:350px;display:none"></div>
+        <div id="myrestartbutton" style="position:absolute;padding-top:150px;padding-left:275px;display:none;">
             <button onclick="restartGame()">Restart</button>
         </div>
         <div id="canvascontainer"></div>
@@ -42,7 +42,7 @@
             <br>
             <button class="btn" ontouchstart="movedown()" onmousedown="movedown()" onmouseup="clearmove()"><i class="fa fa-arrow-down"></i></button>
         </div>
-        <p class="freepik">Press the buttons to move the rocketship</p>
+        <p class="freepik">Press the buttons of use your keyboard arrows to move the rocketship</p>
         <script>
             var myGameArea;
             var myGamePiece;
@@ -72,7 +72,7 @@
             function gamearea() {
                 this.canvas = document.createElement("canvas");
                 this.canvas.width = 600;
-                this.canvas.height = 250;
+                this.canvas.height = 350;
                 document.getElementById("canvascontainer").appendChild(this.canvas);
                 this.context = this.canvas.getContext("2d");
                 this.pause = false;
@@ -80,10 +80,6 @@
                 this.start = function() {
                         this.interval = setInterval(updateGameArea, 20);
                 }
-                window.addEventListener('touchmove', function (e) {
-      myGameArea.x = e.touches[0].screenX;
-      myGameArea.y = e.touches[0].screenY;
-    })
                 this.stop = function() {
                     clearInterval(this.interval);
                     this.pause = true;
@@ -222,10 +218,6 @@
 
             function updateGameArea() {
                 var x, y, min, max, height, gap;
-                if (myGameArea.x && myGameArea.y) {
-    myGamePiece.x = myGameArea.x;
-    myGamePiece.y = myGameArea.y; 
-  }
                 for (i = 0; i < myObstacles.length; i += 1) {
                     if (myGamePiece.crashWith(myObstacles[i])) {
                         myGameArea.stop();
