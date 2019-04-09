@@ -74,6 +74,7 @@
                 this.canvas = document.createElement("canvas");
                 this.canvas.width = 600;
                 this.canvas.height = 350;
+                this.canvas.style.cursor = "none";
                 document.getElementById("canvascontainer").appendChild(this.canvas);
                 this.context = this.canvas.getContext("2d");
                 this.pause = false;
@@ -81,6 +82,14 @@
                 this.start = function() {
                         this.interval = setInterval(updateGameArea, 20);
                 }
+                window.addEventListener('mousemove', function (e) {
+                    myGameArea.x = e.pageX;
+                    myGameArea.y = e.pageY;
+                })
+                window.addEventListener('touchmove', function (e) {
+                    myGameArea.x = e.touches[0].screenX;
+                    myGameArea.y = e.touches[0].screenY;
+                })
                 this.stop = function() {
                     clearInterval(this.interval);
                     this.pause = true;
@@ -265,6 +274,10 @@
                     myGamePiece.update();
                     }
                 }
+                if (myGameArea.x && myGameArea.y) {
+                    myGamePiece.x = myGameArea.x;
+                    myGamePiece.y = myGameArea.y; 
+                }
             }
 
             function everyinterval(n) {
@@ -327,9 +340,12 @@
             }
             startGame();
         </script>
+        <div id="output"></div>
         <div class="freepik">Icons made by <a href="https://www.freepik.com/" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0"
             target="_blank">CC 3.0 BY</a>
         <div class="freepik">Background made by <a href="https://giphy.com/gifs/space-galaxy-ygAaR0n5RsyAM" title="Giphy" target="_blank">Giphy</a>
+        </div>
+        <div class="freepik">Inspired by <a href="https://www.w3schools.com/graphics/game_intro.asp" title="W3Schools" target="_blank">W3Schools HTML Game Example</a>
         </div>
     </body>
 
